@@ -8,11 +8,13 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  IMAGE_NAME: corilus/cp-kafka-connect
-
 jobs:
-  build:
+  loopcheck:
+    strategy:
+      matrix:
+        docker_images:
+          - elk
+          - minio
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +26,8 @@ jobs:
       - name: Build the Docker image
         run: | 
           docker build . \
-            --file Dockerfile \
-            --tag "$IMAGE_NAME:latest" \
+            --file ${{ matrix.docker_images }}/Dockerfile \
+            --tag "corilus/cp-kafka-connect-${{ matrix.docker_images }}:latest" \
             --label="org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
             --label="org.opencontainers.image.revision=$GITHUB_SHA" \
             --label="org.opencontainers.image.created=$(date --rfc-3339=seconds)"
@@ -40,4 +42,4 @@ jobs:
       - name: Push images to Docker Hub registry
         if: github.ref == 'refs/heads/master'
         run: |
-          docker push $IMAGE_NAME
+          docker push corilus/cp-kafka-connect-${{ matrix.docker_images }}
