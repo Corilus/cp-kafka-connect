@@ -25,8 +25,7 @@ jobs:
 
       - name: Build the Docker image
         run: | 
-          docker build . \
-            --file ${{ matrix.docker_images }}/Dockerfile \
+          docker build ${{ matrix.docker_images }} \
             --tag "corilus/cp-kafka-connect-${{ matrix.docker_images }}:latest" \
             --label="org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
             --label="org.opencontainers.image.revision=$GITHUB_SHA" \
