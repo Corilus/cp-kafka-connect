@@ -1,8 +1,6 @@
 FROM confluentinc/cp-kafka-connect-base
 MAINTAINER Jens Van Deynse [corilus.be]
 
-COPY kafka-connect.yml /opt/
-
 USER root
 RUN yum install jq -y
 
