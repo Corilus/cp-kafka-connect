@@ -13,4 +13,4 @@ RUN apache-maven-3.9.9/bin/mvn org.apache.maven.plugins:maven-dependency-plugin:
 RUN mv /opt/jmx_prometheus_javaagent-1.0.1.jar /opt/prometheus_agent.jar
 
 USER appuser
-RUN confluent-hub install --no-prompt org.elasticsearch:elasticsearch-kafka-connect:1.2.1
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:14.1.1
