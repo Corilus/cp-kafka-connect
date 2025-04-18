@@ -1,4 +1,4 @@
-FROM confluentinc/cp-kafka-connect-base
+FROM confluentinc/cp-kafka-connect-base:7.8.2
 MAINTAINER Jens Van Deynse [corilus.be]
 
 USER root
