@@ -1,7 +1,7 @@
 FROM confluentinc/cp-kafka-connect-base
 
 USER root
-RUN microdnf install -y ca-certificates gzip tar wget && microdnf clean all;
+RUN microdnf install -y ca-certificates gzip jq tar wget && microdnf clean all;
 
 RUN set -eux; \
     install -d -m 0755 /usr/share/filestream-connectors; \
