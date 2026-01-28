@@ -15,6 +15,7 @@ jobs:
       matrix:
         docker_images:
           - elk
+          - file
           - s3
     runs-on: ubuntu-latest
 
