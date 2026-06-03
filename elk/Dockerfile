@@ -6,7 +6,7 @@ USER root
 RUN microdnf install ca-certificates gzip jq wget tar -y && microdnf clean all;
 
 RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz
-RUN tar -xvf apache-maven-3.9.16-bin.tar.gz
+RUN tar -xzvf apache-maven-3.9.16-bin.tar.gz
 RUN apache-maven-3.9.16/bin/mvn org.apache.maven.plugins:maven-dependency-plugin:3.6.0:copy \
     -Dartifact=io.prometheus.jmx:jmx_prometheus_javaagent:LATEST \
     -DoutputDirectory=/opt \
