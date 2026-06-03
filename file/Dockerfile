@@ -11,7 +11,7 @@ RUN set -eux; \
     chmod 0644 /usr/share/filestream-connectors/connect-file-3.9.0.jar
 
 RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz
-RUN tar -xvf apache-maven-3.9.16-bin.tar.gz
+RUN tar -xzvf apache-maven-3.9.16-bin.tar.gz
 RUN apache-maven-3.9.16/bin/mvn org.apache.maven.plugins:maven-dependency-plugin:3.9.0:copy \
     -Dartifact=io.prometheus.jmx:jmx_prometheus_javaagent:LATEST \
     -DoutputDirectory=/opt \
