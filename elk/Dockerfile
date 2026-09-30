@@ -1,4 +1,4 @@
-FROM confluentinc/cp-kafka-connect-base
+FROM confluentinc/cp-kafka-connect-base:7.9.0
 
 COPY ./plugins/ /usr/share/java/
 
