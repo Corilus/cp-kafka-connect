@@ -1,4 +1,4 @@
-FROM confluentinc/cp-kafka-connect-base
+FROM confluentinc/cp-kafka-connect
 
 USER root
 RUN microdnf install -y ca-certificates gzip jq tar wget && microdnf clean all;
