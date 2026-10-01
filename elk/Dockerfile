@@ -1,4 +1,4 @@
-FROM confluentinc/cp-kafka-connect-base
+FROM confluentinc/cp-kafka-connect-base:7.9.0
 
 COPY ./plugins/ /usr/share/java/
 
@@ -14,4 +14,4 @@ RUN apache-maven-3.9.16/bin/mvn org.apache.maven.plugins:maven-dependency-plugin
 RUN mv /opt/jmx_prometheus_javaagent-1.0.1.jar /opt/prometheus_agent.jar
 
 USER appuser
-RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:14.1.1
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:16.0.0
