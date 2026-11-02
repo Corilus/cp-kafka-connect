@@ -1,7 +1,7 @@
 FROM confluentinc/cp-kafka-connect-base:7.9.0
 
 USER root
-RUN microdnf install -y ca-certificates gzip tar wget && microdnf clean all;
+RUN microdnf install -y ca-certificates gzip jq tar wget && microdnf clean all;
 
 RUN wget https://archive.apache.org/dist/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz
 RUN tar -xzvf apache-maven-3.9.16-bin.tar.gz
